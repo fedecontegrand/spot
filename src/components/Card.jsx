@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./Card.module.css"
 import star from "../../estrella.png"
 import emptyStar from "../../estrellavacia.png"
-import { useContext, useState } from 'react/cjs/react.development'
+import { useContext, useState } from 'react'
 import { CharactersContext } from './Context'
 
 export default function Card({name,status,species,image,numOfEpisodes,id,isFav}) {
