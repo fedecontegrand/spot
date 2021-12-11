@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
-import { useContext } from 'react/cjs/react.development'
+import { useContext } from 'react'
 import { CharactersContext } from "../components/Context"
 import Card from '../components/Card'
 import styles from "./Home.module.css"
