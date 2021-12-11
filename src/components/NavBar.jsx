@@ -9,7 +9,7 @@ export default function NavBar() {
             <NavLink to="/">
                 <img src={logo} alt="logo" className={styles.logo}/>
             </NavLink>
-            <NavLink to="/favorites">Favorites</NavLink>
+            <NavLink to="/favorites" activeclassname={styles.isActive}>Favorites</NavLink>
         </nav>
     )
 }

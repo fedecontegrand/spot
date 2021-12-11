@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from 'react'
+import { useState } from 'react/cjs/react.development'
 import Card from '../components/Card'
 import {CharactersContext} from '../components/Context'
+import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
 import Search from '../components/Search'
 import styles from "./Home.module.css"
@@ -9,15 +11,31 @@ export default function Home() {
 
   const {characters,getCharacters,favorites}=useContext(CharactersContext)
 
+  const [page,setPage]=useState(1)
+
+  const [search,setSearch]=useState("")
+
+
   useEffect(()=>{
-    getCharacters()
-  },[])
+    getCharacters(search,page)
+  },[page,search])
+
+  const handlePageChange=e=>{
+    window.scrollTo({top:0,behavior:'smooth'})
+    if (e.target.name==='next') setPage(page=>page+1)
+    else setPage(page=>page-1)
+  }
+
+  const handleSearchChange=(input)=>{
+    setPage(1)
+    setSearch(input)
+}
 
 
   return (
       <div>
         <NavBar/>  
-        <Search/>
+        <Search handleSearchChange={handleSearchChange}/>
        {characters ?
         <div className={styles.cardsContainer}>
           {characters.map(char=>
@@ -33,6 +51,7 @@ export default function Home() {
            />)}
         </div>
         :null}
+        <Footer page={page} handlePageChange={handlePageChange}/>
       </div>
   )
 }

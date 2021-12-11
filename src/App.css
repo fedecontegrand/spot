@@ -5,6 +5,13 @@
   background-color: darkslategrey;
 }
 
+:root{
+  --fontprimary:'Architects Daughter';
+  --fontsecondary:'Chakra Petch';
+}
+
+
+
 button:hover{
   cursor: pointer;
 }

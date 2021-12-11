@@ -18,9 +18,10 @@ input{
     border-radius: 1rem;
     border:0px;
     outline:none;
-    padding:0.2rem 1rem 
+    padding:0.2rem 1rem; 
+    font-family: var(--fontsecondary);
 }
-button{
+.button{
     background-color: transparent;
     border: 0px;
     display: flex;

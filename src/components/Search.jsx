@@ -4,28 +4,26 @@ import lupa from "../../lupa1.png"
 import { useContext } from 'react/cjs/react.development'
 import { CharactersContext } from './Context'
 
-export default function Search() {
-
-    const {getCharacters}=useContext(CharactersContext)
-    
-    const [search,setSearch]=useState("")
+export default function Search({handleSearchChange}) {
+   
+    const [input,setInput]=useState("")
 
 
     const handleChange=e=>{
-        setSearch(e.target.value)
+        setInput(e.target.value)
     }
 
     const handleClick=e=>{
         e.preventDefault()
-        getCharacters(search)
-        setSearch("")
+        handleSearchChange(input)
+        setInput("")
     }
 
     return (
         <div className={styles.divContainer}>
             <form onSubmit={handleClick}>
-            <input type="text" value={search} placeholder='Search your character..' onChange={handleChange}/>
-            <button type="submit">
+            <input type="text" placeholder='Search your character..' onChange={handleChange} value={input}/>
+            <button type="submit" className={styles.button}>
                 <img 
                 src={lupa}
                 alt="lupa"
