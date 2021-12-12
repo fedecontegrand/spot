@@ -55,7 +55,7 @@ export default function Home() {
             />)}
             <Footer page={page} handlePageChange={handlePageChange} limitPage={limitPage}/>
           </>
-          : <h2>{error}</h2>
+          : <h2 style={{fontFamily:"var(--fontprimary)"}}>{error} 😥</h2>
           :<Spinner/>} 
           </div>
       </div>

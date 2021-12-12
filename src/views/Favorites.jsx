@@ -13,7 +13,7 @@ export default function Favorites() {
     return (
         <div>
             <NavBar/>
-            {favorites?
+            {favorites.length?
             <div className={styles.cardsContainer}>
                 {favorites.map(fav=>
                 <Card
@@ -27,7 +27,10 @@ export default function Favorites() {
                 isFav={true}
                 />)}
             </div>
-            :null}
+            : 
+            <h2 style={{marginTop:"2rem",fontFamily:"var(--fontprimary)"}}>
+                Your characters list is empty 😥
+            </h2>}
         </div>
     )
 }

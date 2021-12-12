@@ -23,7 +23,11 @@ export default function Card({name,status,species,image,numOfEpisodes,id,isFav})
             src={ isFav ? star : emptyStar} 
             alt="estr" 
             className={styles.fav} 
-            onClick={(e)=> isFav ? removeFavorite(id) : addFavorite(id)}
+            onClick={(e)=>
+                isFav ? removeFavorite(id) 
+                : favorites.length>=5 ? window.alert("You can add only 5 characters to your list!")
+                : addFavorite(id)
+                }
             />
         </div>
     )
