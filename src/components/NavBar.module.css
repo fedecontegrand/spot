@@ -7,15 +7,30 @@
     column-gap: 1rem;
     padding: 0.5rem 0;
 }
-a{
+.link,.active{
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    font-size: 2rem;
-    font-family: var(--fontprimary)
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: var(--fontprimary);
+    color:darkcyan;
 }
 .logo{
+    padding: auto;
     height: 4rem;
 }
 
-.isActive{
-    color:violet
+.active{
+    color:darkslategrey;
+    font-style: italic;
+}
+
+@media (max-width:400px) {
+    .logo{
+        height: 3rem;
+    }
+    .link,.active {
+        font-size: 2rem;
+    }
 }

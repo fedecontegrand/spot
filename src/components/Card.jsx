@@ -15,7 +15,7 @@ export default function Card({name,status,species,image,numOfEpisodes,id,isFav})
             <img src={image} alt="charimage"/>
             <div className={styles.content}>
             <h4>{name}</h4>
-            <span>Status: {status}</span>
+            <span>Status: {status}<div className={styles[status]}/></span>
             <span>Species: {species}</span>
             <span>Nº of appearances: {numOfEpisodes}</span>
             </div>

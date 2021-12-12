@@ -5,11 +5,13 @@ import {CharactersContext} from '../components/Context'
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
 import Search from '../components/Search'
+import Spinner from '../components/Spinner'
 import styles from "./Home.module.css"
 
 export default function Home() {
 
-  const {characters,getCharacters,favorites}=useContext(CharactersContext)
+  const {characters,getCharacters,favorites,limitPage}=useContext(CharactersContext)
+  const error=useContext(CharactersContext).characters?.error
 
   const [page,setPage]=useState(1)
 
@@ -36,22 +38,26 @@ export default function Home() {
       <div>
         <NavBar/>  
         <Search handleSearchChange={handleSearchChange}/>
-       {characters ?
         <div className={styles.cardsContainer}>
-          {characters.map(char=>
-           <Card
-           key={char.id}
-           id={char.id}
-           name={char.name}
-           image={char.image}
-           status={char.status}
-           species={char.species}
-           numOfEpisodes={char.episode.length}
-           isFav={favorites.some(fav=>fav.id===char.id)}
-           />)}
-        </div>
-        :null}
-        <Footer page={page} handlePageChange={handlePageChange}/>
+        {characters ?
+          Array.isArray(characters) ? 
+          <> 
+           {characters.map(char=>
+            <Card
+            key={char.id}
+            id={char.id}
+            name={char.name}
+            image={char.image}
+            status={char.status}
+            species={char.species}
+            numOfEpisodes={char.episode.length}
+            isFav={favorites.some(fav=>fav.id===char.id)}
+            />)}
+            <Footer page={page} handlePageChange={handlePageChange} limitPage={limitPage}/>
+          </>
+          : <h2>{error}</h2>
+          :<Spinner/>} 
+          </div>
       </div>
   )
 }

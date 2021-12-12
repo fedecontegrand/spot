@@ -8,8 +8,12 @@
 :root{
   --fontprimary:'Architects Daughter';
   --fontsecondary:'Chakra Petch';
+  
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 
 
 button:hover{
